@@ -5,43 +5,66 @@ import Learn from "./pages/Learn";
 import AddWord from "./pages/AddWord";
 import Login from "./pages/Login";
 import { useState } from "react";
+import { createTheme, ThemeProvider } from "@mui/material";
+import { cyan } from "@mui/material/colors";
+import Lesson from "./pages/Lesson";
 
-import * as React from "react";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import MenuIcon from "@mui/icons-material/Menu";
-import {
-  Button,
-  Typography,
-  Toolbar,
-  ListItemText,
-  ListItemIcon,
-  ListItem,
-  List,
-  IconButton,
-  Drawer,
-  Divider,
-  CssBaseline,
-  Box,
-  AppBar,
-} from "@mui/material";
+const theme = createTheme({
+  palette: {
+    primary: cyan,
+  },
+  typography: {
+    fontFamily: 'Quicksand',
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+  }
+});
+
+// import InboxIcon from "@mui/icons-material/MoveToInbox";
+// import MailIcon from "@mui/icons-material/Mail";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import {
+//   Button,
+//   Typography,
+//   Toolbar,
+//   ListItemText,
+//   ListItemIcon,
+//   ListItem,
+//   List,
+//   IconButton,
+//   Drawer,
+//   Divider,
+//   CssBaseline,
+//   Box,
+//   AppBar,
+// } from "@mui/material";
 
 function App(props) {
   return (
-    <Switch>
-      <Route path="/learn">
-        <Learn />
-      </Route>
-      <Route path="/add">
-        <AddWord />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/">
-        <Welcome />
-      </Route>
-    </Switch>
+    <ThemeProvider theme={theme}>
+      <Switch>
+        <Route path="/learn">
+          <Learn />
+        </Route>
+        <Route path="/add">
+          <AddWord />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/addword">
+          <AddWord />
+        </Route>
+        <Route path="/lesson">
+          <Lesson />
+        </Route>
+        <Route path="/">
+          <Welcome />
+        </Route>
+      </Switch>
+    </ThemeProvider>
   );
 }
 
